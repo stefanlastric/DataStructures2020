@@ -1,17 +1,16 @@
 package homework1;
 
-import lab.two.queue.Queue;
-import lab.two.stack.Stack;
 
 public class Main {
 
 	public static void main(String[] args) {
 	System.out.println("DoubleLinkedListTest: ");
 		DoubleLinkedList<Integer> list = new DoubleLinkedList<Integer>();
-		
-		
+		list.addToRear(4);
+		list.addToFront(1);
 		list.addToRear(2);
 		list.removeFromRear();
+		
 		for (Integer i: list) {
 			System.out.println(i);
 		}
@@ -22,8 +21,8 @@ public class Main {
 Queue<Integer> queue = new Queue<Integer>();
 		
 		queue.enqueue(1);
-		queue.enqueue(2);
 		queue.enqueue(3);
+		queue.enqueue(2);
 			
 		System.out.println(queue.dequeue());
 		System.out.println(queue.dequeue());

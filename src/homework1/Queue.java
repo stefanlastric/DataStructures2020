@@ -3,7 +3,7 @@ package homework1;
 public class Queue<Item> {	
 	@SuppressWarnings("unchecked")
 	
-	int length;
+	int length = 0;
 	Node<Item> tail;
 	Node<Item> head;
 	
@@ -11,27 +11,36 @@ public class Queue<Item> {
 	/* Add a new item to the back of the queue */
 	public void enqueue(Item item) {
 		Node<Item> newNode = new Node<Item>();
-		if(this.tail==null) {
-			this.head=this.tail=newNode;
-			return;
-		}
-		this.tail.next=newNode;
-		this.tail=newNode;
-		length++;
+		newNode.data=item;
+		newNode.next=null;
+		
+		if(head==null) {
+			head=tail=newNode;
+			head.previous=null;
+		}else
+		{
+		tail.next=newNode;
+		newNode.previous=tail;
+		tail=newNode;
+		
+	}length++;
 	}
 	
-	
-	public void dequeue() {
-		if(this.head==null) {
-			return;
+	public Item dequeue() {
+		if(head==null) {
+			return null;
 		}
 		Node<Item>newNode=new Node<Item>();
+		newNode=head;
+		head=head.next;
 		
-		newNode=this.head;
-		this.head=this.head.next;
-		if(this.head==null)this.tail=null;
-		length--;
+		if(head==null)tail=null;
+		
+		if(length>0)length--;
+		
+		return newNode.data;
 	}
+		
 	
 	/* Check if the queue is empty */
 	public boolean isEmpty() {

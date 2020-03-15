@@ -10,7 +10,7 @@ public class Stack<Item> {
 
 	@SuppressWarnings("unchecked")
 	private void resize(int capacity) {
-        assert capacity >= length;
+       assert capacity >= length;
 
         // textbook implementation
         Item[] temp = (Item[]) new Object[capacity];
